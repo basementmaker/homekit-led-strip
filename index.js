@@ -9,12 +9,12 @@ const Service = hap.Service;
 const accessoryUuid = hap.uuid.generate("basementmaker.projects.ledstrip");
 const accessory = new Accessory("LED Strip Accesssory", accessoryUuid);
 
+const lightService = new Service.Lightbulb("LED Strip");
+
 const onCharacteristic = lightService.getCharacteristic(Characteristic.On);
 const brightnessCharacteristic = lightService.getCharacteristic(Characteristic.Brightness);
 
-const lightService = new Service.Lightbulb("LED Strip");
-
-var showLogging = true;
+var showLogging = false;
 var LEDstripStatusIsOn = false;
 var currentLEDbrightness = 0;
 var ledStripGPIOpin = new gpio(17, {mode: gpio.OUTPUT});
